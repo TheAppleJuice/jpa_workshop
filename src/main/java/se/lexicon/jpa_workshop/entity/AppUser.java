@@ -6,8 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Repository
-@Entity
+
 public class AppUser {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

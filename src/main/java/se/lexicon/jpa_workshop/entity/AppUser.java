@@ -17,6 +17,9 @@ public class AppUser {
     @Column (nullable = false, unique = true)
     private String email;
 
+    public AppUser() {
+    }
+
     public int getId() {
         return Id;
     }

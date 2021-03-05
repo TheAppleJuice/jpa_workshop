@@ -13,6 +13,9 @@ public class Product {
     private String name;
     private double price;
 
+    public Product() {
+    }
+
     public int getId() {
         return Id;
     }

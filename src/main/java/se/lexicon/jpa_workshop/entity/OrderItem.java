@@ -16,6 +16,10 @@ public class OrderItem {
     @JoinColumn(name = "productOrder_id")
     private ProductOrder productOrder;
 
+    public OrderItem() {
+
+    }
+
     public double calculatePrice (Product product, int quantity){
         return product.getPrice() * quantity;
 

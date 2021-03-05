@@ -17,6 +17,9 @@ public class ProductOrder {
     private List<OrderItem> orderItems;
     private AppUser customer;
 
+    public ProductOrder() {
+    }
+
     public void addOrderItem (OrderItem orderItem){
         if (orderItems == null){
             orderItems = new ArrayList<>();

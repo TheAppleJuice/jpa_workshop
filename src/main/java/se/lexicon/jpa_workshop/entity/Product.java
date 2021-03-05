@@ -2,19 +2,28 @@ package se.lexicon.jpa_workshop.entity;
 
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import java.util.Objects;
 
+@Entity
 public class Product {
     @Id
     @GeneratedValue ( strategy = GenerationType.IDENTITY)
     private int Id;
+    @Column(nullable = false , length = 255)
     private String name;
+    @Column (nullable = false , length = 255)
     private double price;
+
+
 
     public Product() {
     }
+
+
 
     public int getId() {
         return Id;
@@ -39,6 +48,10 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+
+
+
+
 
     @Override
     public boolean equals(Object o) {

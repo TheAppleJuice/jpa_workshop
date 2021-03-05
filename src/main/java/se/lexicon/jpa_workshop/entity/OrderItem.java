@@ -1,18 +1,22 @@
 package se.lexicon.jpa_workshop.entity;
 
 
-import org.springframework.stereotype.Repository;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 public class OrderItem {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
+    @Column (nullable = false , length = 255)
     private int quantity;
+
+    @ManyToOne (cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     private Product product;
-    @ManyToOne
+
+    @ManyToOne (cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "productOrder_id")
     private ProductOrder productOrder;
 

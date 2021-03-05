@@ -1,20 +1,24 @@
 package se.lexicon.jpa_workshop.entity;
 
-import org.springframework.stereotype.Repository;
 
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
+@Entity
 public class ProductOrder {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
+    @Column (nullable = false)
     private LocalDateTime orderDateTime;
 
-    @OneToMany (mappedBy = "productOrder")
+    @OneToMany (mappedBy = "productOrder", orphanRemoval = true)
     private List<OrderItem> orderItems;
+
+    @ManyToOne (cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     private AppUser customer;
 
     public ProductOrder() {

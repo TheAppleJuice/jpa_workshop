@@ -1,11 +1,11 @@
 package se.lexicon.jpa_workshop.entity;
 
-import org.springframework.stereotype.Repository;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 public class AppUser {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -17,8 +17,14 @@ public class AppUser {
     @Column (nullable = false, unique = true)
     private String email;
 
+
+
+
     public AppUser() {
     }
+
+
+
 
     public int getId() {
         return Id;
@@ -51,6 +57,10 @@ public class AppUser {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
+
+
 
     @Override
     public boolean equals(Object o) {

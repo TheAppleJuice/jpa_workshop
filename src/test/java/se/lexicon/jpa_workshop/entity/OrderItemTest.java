@@ -33,11 +33,12 @@ public class OrderItemTest {
 
         OrderItem createOrder = new OrderItem();
         createOrder.setProduct(product1);
-        createOrder.setQuantity(10);
+        createOrder.setQuantity(3);
 
         double expected = 19500.50 * 3;
 
-        Assertions.assertEquals(expected,createOrder.calculatePrice(product1, 3) );
+
+        Assertions.assertEquals(expected,createOrder.calculatePrice(product1, createOrder.getQuantity()) );
     }
 
 }

@@ -1,15 +1,24 @@
 package se.lexicon.jpa_workshop.entity;
 
+
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.util.Objects;
 
 public class OrderItem {
     private int Id;
     private int quantity;
     private Product product;
+    @ManyToOne
+    @JoinColumn(name = "productOrder_id")
     private ProductOrder productOrder;
 
     public double calculatePrice (Product product, int quantity){
         return product.getPrice() * quantity;
+
     }
 
     public int getId() {
